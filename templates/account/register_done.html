@@ -1,0 +1,12 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+
+{% block title %}Ro'yxatdan muvaffaqiyatli o'ttingiz{% endblock title %}
+
+{% block content %}
+    <section id="contentSection">
+        <h1>{{ new_user.first_name }}, Ro'yxatdan muvaffaqiyatli o'ttingiz</h1>
+        <a href="{% url 'login' %}" class="btn btn-success">Login</a>
+    </section>
+{% endblock content %}

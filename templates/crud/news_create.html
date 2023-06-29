@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Yangilik qo'shish
+{% endblock title %}
+{% block content %}
+    <form action="#" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <p>{{ news.title }}</p>
+        {{ form.as_p }}
+        <button type="submit">Saqlash</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    {{ news.title }}
+{% endblock title %}
+{% block content %}
+    <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ news.title }}</p>
+        {{ form.as_p }}
+        <button type="submit">Saqlash</button>
+    </form>
+{% endblock content %}

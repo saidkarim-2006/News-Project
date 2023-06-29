@@ -1,0 +1,73 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+
+{% block title %}Profil{% endblock title %}
+
+{% block content %}
+    <section id="contentSection">
+        <article class="profile_card">
+            <div class="profile_container">
+                <img class="user_photo" src="{{ request.user.profile.photo.url }}" alt="">
+
+
+            </div>
+            <div class="profile-edit">
+                <a href="{% url 'edit_user' %}" class="btn profile-edit-btn">Profilni tahrirlash</a>
+            </div>
+
+            <div class="card_group">
+                <label class="card_label" for="name"> Foydalanuvchi nomi </label>
+                <input class="card_input" id="name" value="{{ request.user.username }}" readonly>
+                <i title="ok!" class="card_check"></i>
+            </div>
+
+            <div class="card_group">
+                <label class="card_label" for="name"> Isim </label>
+                <input class="card_input" id="name" readonly value="{{ request.user.first_name }}">
+                <i title="ok!" class="card_check"></i>
+            </div>
+
+            <div class="card_group">
+                <label class="card_label" for="name"> Familiya </label>
+                <input class="card_input" id="name" readonly value="{{ request.user.last_name }}">
+                <i title="ok!" class="card_check"></i>
+            </div>
+
+
+            {#        <div class="card_group">#}
+            {#            <div class="card_gender">#}
+            {#                <input hidden type="radio" id="female" name="gender">#}
+            {#                <label class="card_gender-label" tabindex=0 for="female"> Female </label>#}
+            {#            </div>#}
+            {#            <div class="card_gender">#}
+            {#                <input hidden type="radio" id="male" name="gender">#}
+            {#                <label class="card_gender-label" tabindex=0 for="male"> Male </label>#}
+            {#            </div>#}
+            {#            <div class="card_gender">#}
+            {#                <input hidden type="radio" id="other" name="gender">#}
+            {#                <label class="card_gender-label" tabindex=0 for="other"> Other </label>#}
+            {#            </div>#}
+            {#        </div>#}
+
+            <div class="card_group">
+                <label class="card_label" for="email"> Email </label>
+                <input class="card_input" id="email" type="email" readonly value="{{ request.user.email }}">
+                <i title="ok!" class="card_check"></i>
+            </div>
+
+            <div class="card_group">
+                <label class="card_label" for="date_of_birth"> Tug'ilgan sana </label>
+                <input class="card_input" id="date_of_birth" readonly value="{{ request.user.profile.date_of_birth }}">
+                <i title="ok!" class="card_check"></i>
+            </div>
+
+
+        </article>
+
+        <br>
+        <a class="btn btn-success" href="{% url 'password_change' %}">Parolni almashtirish</a>
+        <a class="btn btn-warning" href="{% url 'password_reset' %}">Parolni tiklash</a>
+        <a class="btn btn-red" href="{% url 'logout' %}">Logout</a>
+    </section>
+{% endblock content %}

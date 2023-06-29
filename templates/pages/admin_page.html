@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+
+{% block title %}Admin sahifasi{% endblock title %}
+
+{% block content %}
+<section id="contentSection">
+    <h1>Admin sahifasi</h1>
+    <table class="table table-bordered table-responsive table-striped">
+        <tr>
+            <th>Foydalanuvchi nom</th>
+            <th>Ism</th>
+            <th>Familiya</th>
+        </tr>
+        {% for user in admin_users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</section>
+{% endblock content %}

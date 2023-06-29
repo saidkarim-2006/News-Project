@@ -1,0 +1,57 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+
+{% block title %}Ro'yxatdan o'tish{% endblock title %}
+
+{#{% block content %}#}
+{##}
+{#    <h1>Yangi foydalanuvchilarni ro'yxatdan o'tkazish</h1>#}
+{#    <form method="post">{% csrf_token %}#}
+{#    {{ form.as_p }}#}
+{#    <button type="submit" class="btn btn-success">Ro'yxatdan o'tish</button>#}
+{#    </form>#}
+{##}
+{#{% endblock content %}#}
+
+
+{% block content %}
+    <div id="card-content">
+        <div class="login_card">
+            <div id="card-title">
+                <h2>Hisob yaratish</h2>
+                <div class="underline-title-signup"></div>
+            </div>
+            <form method="post" class="form">
+                {% csrf_token %}
+
+                <label for="user-email" style="padding-top:13px">
+                    &nbsp;Foydalanuvchi nomi
+                </label>
+                <input id="user-email" class="form-content" type="text" name="username" autocomplete="on" required/>
+                <div class="form-border"></div>
+                <label for="user-password" style="padding-top:22px">&nbsp;Parol
+                </label>
+                <input id="user-password" class="form-content" type="password" name="password1" required/>
+                <div class="form-border"></div>
+                <br>
+                <p>Sizning parolingiz boshqa shaxsiy ma'lumotlaringizga juda o'xshash bo'lishi mumkin emas.</p>
+                <p>Parolingiz kamida 8 ta belgidan iborat boʻlishi kerak.</p>
+                <p>Sizning parolingiz tez-tez ishlatiladigan parol bo'lishi mumkin emas.</p>
+                <p>Sizning parolingiz to'liq raqamli bo'lishi mumkin emas.</p>
+                <label for="user-password" style="padding-top:22px">&nbsp;Parolni tasdiqlash
+                </label>
+                <input id="user-password" class="form-content" type="password" name="password2" required/>
+                <div class="form-border"></div>
+                <div align="center">
+                    <button id="submit-btn" type="submit" style="margin-bottom: 20px">Ro'yxatdan o'tish</button>
+                    <div>
+                        <a href="{% url 'login' %}" id="signup">Saytga kirish</a>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+{% endblock content %}
