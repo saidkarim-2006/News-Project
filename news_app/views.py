@@ -81,12 +81,14 @@ class HomePageView(ListView):
         context['categories'] = Category.objects.all()
         context['slider_news'] = News.published.all().order_by('-publish_time')[:10]
         context['lasted_news'] = News.published.all().order_by('-publish_time')[:5]
-        context['business_one'] = News.published.filter(category__name='Biznes')[:1]
-        context['business_news'] = News.published.all().filter(category__name='Biznes')[:5]
-        context['technology_news'] = News.published.all().filter(category__name='Texnalogiya')[:6]
-        context['foreign_news'] = News.published.all().filter(category__name='Xorij')[:6]
-        context['sport_news'] = News.published.all().filter(category__name='Sport')[:6]
+        context['business_one'] = News.published.filter(category__name_uz='Biznes')[:1]
+        context['business_news'] = News.published.all().filter(category__name_uz='Biznes')[:5]
+        context['technology_news'] = News.published.all().filter(category__name_uz='Texnalogiya')[:6]
+        context['foreign_news'] = News.published.all().filter(category__name_uz='Xorij')[:6]
+        context['sport_news'] = News.published.all().filter(category__name_uz='Sport')[:6]
         return context
+
+
 
 
 # def ContactPageView(request):
@@ -132,7 +134,7 @@ class LocalNewsView(ListView):
     context_object_name = 'mahalliy_news'
 
     def get_queryset(self):
-        news = self.model.published.all().filter(category__name="Mahalliy")
+        news = self.model.published.all().filter(category__name_uz="Mahalliy")
         return news
 
 
@@ -142,7 +144,7 @@ class ForeignNewsView(ListView):
     context_object_name = 'xorij_news'
 
     def get_queryset(self):
-        news = self.model.published.all().filter(category__name="Xorij")
+        news = self.model.published.all().filter(category__name_uz="Xorij")
         return news
 
 
@@ -152,7 +154,7 @@ class TechnologyNewsView(ListView):
     context_object_name = 'technology_news'
 
     def get_queryset(self):
-        news = self.model.published.all().filter(category__name="Texnalogiya")
+        news = self.model.published.all().filter(category__name_uz="Texnalogiya")
         return news
 
 
@@ -162,7 +164,7 @@ class SportNewsView(ListView):
     context_object_name = 'sport_news'
 
     def get_queryset(self):
-        news = self.model.published.all().filter(category__name="Sport")
+        news = self.model.published.all().filter(category__name_uz="Sport")
         return news
 
 
@@ -209,3 +211,6 @@ class SearchView(ListView):
         return News.objects.filter(
             Q(title__icontains=query) | Q(body__icontains=query)
         )
+
+
+

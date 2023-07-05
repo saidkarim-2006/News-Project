@@ -32,9 +32,9 @@
                 <div class="header_top">
                     <div class="header_top_left">
                         <ul class="top_nav">
-                            <li><a href="{% url 'home_page' %}">Bosh sahifa</a></li>
-                            <li><a href="#">Biz haqimizda</a></li>
-                            <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
+                            <li><a href="{% url 'home_page' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
+                            <li><a href="#">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
+                            <li><a href="{% url 'contact_page' %}">{% blocktrans %}Biz bilan aloqa{% endblocktrans %}</a></li>
                             <li>
                                 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
                                     <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -91,7 +91,7 @@
                     <li class="active"><a href="{% url 'home_page' %}"><span
                             class="fa fa-home desktop-home"></span><span
                             class="mobile-show">Home</span></a></li>
-                    <li><a href="{% url 'local_news_page' %}">Mahalliy</a></li>
+                    <li><a href="{% url 'local_news_page' %}">{% blocktrans %}Mahalliy{% endblocktrans %}</a></li>
                     {#                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"#}
                     {#                                            aria-expanded="false">Mobile</a>#}
                     {#                        <ul class="dropdown-menu" role="menu">#}
@@ -102,16 +102,16 @@
                     {#                            <li><a href="#">Sympony</a></li>#}
                     {#                        </ul>#}
                     {#                    </li>#}
-                    <li><a href="{% url 'foreign_news_page' %}">Xorij</a></li>
-                    <li><a href="{% url 'technology_news_page' %}">Texnalogiya</a></li>
-                    <li><a href="{% url 'sport_news_page' %}">Sport</a></li>
-                    <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
-                    <li><a href="pages/404.html">404 Page</a></li>
+                    <li><a href="{% url 'foreign_news_page' %}">{% blocktrans %}Xorij{% endblocktrans %}</a></li>
+                    <li><a href="{% url 'technology_news_page' %}">{% blocktrans %}Texnalogiya{% endblocktrans %}</a></li>
+                    <li><a href="{% url 'sport_news_page' %}">{% blocktrans %}Sport{% endblocktrans %}</a></li>
+                    <li><a href="{% url 'contact_page' %}">{% blocktrans %}Biz bilan aloqa{% endblocktrans %}</a></li>
+                    <li><a href="">{% blocktrans %}404 Page{% endblocktrans %}</a></li>
 
                     <li>
                         <div>
                             <form action="{% url 'search_result' %}" method="get">
-                                <input type="search" name="q" placeholder="qidiruv" class="form-control">
+                                <input type="search" name="q" placeholder="{% blocktrans %}qidiruv{% endblocktrans %}" class="form-control">
                             </form>
                         </div>
                     </li>
@@ -122,7 +122,7 @@
     <section id="newsSection">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="latest_newsarea"><span>So'ngi yangilikar</span>
+                <div class="latest_newsarea"><span>{% blocktrans %}So'ngi yangilikar{% endblocktrans %}</span>
                     <ul id="ticker01" class="news_sticker">
                         {% for latest in latest_news %}
                             <li><a href="{{ latest.get_absolute_url }}"><img src="{{ latest.image.url }}"
