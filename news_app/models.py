@@ -54,4 +54,19 @@ class Contact(models.Model):
         return self.name
 
 
+class Comment(models.Model):
+    new = models.ForeignKey(News,
+                             on_delete=models.CASCADE,
+                             related_name='comments')
+    user = models.ForeignKey(User,
+                             on_delete=models.CASCADE,
+                             related_name='comments')
+    body = models.TextField()
+    created_time = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ['-created_time']
+
+    def __str__(self):
+        return f"Comment - {self.body} by {self.user} "
